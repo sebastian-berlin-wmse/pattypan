@@ -27,10 +27,19 @@
   </target>
 
   <target name="jar">
+    <copy todir="bin/pattypan/resources">
+      <fileset dir="src/pattypan/resources"/>
+    </copy>
+        <copy todir="bin/pattypan/style">
+      <fileset dir="src/pattypan/style"/>
+    </copy>
+        <copy todir="bin/pattypan/text">
+      <fileset dir="src/pattypan/text"/>
+    </copy>
     <jar destfile="pattypan.jar" basedir="bin" includes="**/*">
       <manifest>
         <attribute name="Class-Path" value="${lib.dir}"/>
-        <attribute name="Main-Class" value="pattypan.Main"/>
+        <attribute name="Main-Class" value="pattypan.Launcher"/>
       </manifest>
 
       <zipgroupfileset dir="${lib.dir}"/>

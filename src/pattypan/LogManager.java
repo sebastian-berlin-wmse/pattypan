@@ -15,14 +15,15 @@ public class LogManager {
 
   public LogManager() {
     try {
-      Path logFileLocation = Paths.get(Util.getApplicationDirectory() + "/logs");
+      Path logFileLocation = Paths.get("./logs");
+      // Path logFileLocation = Paths.get(Util.getApplicationDirectory() + "/logs");
       if (!Files.exists(logFileLocation)) {
         Files.createDirectories(logFileLocation);
       }
 
-      if (!Settings.getSetting("version").equals(Settings.VERSION)) {
-        Files.deleteIfExists(Paths.get(logFileLocation.toString() + "/pattypan.log"));
-      }
+      // if (!Settings.getSetting("version").equals(Settings.VERSION)) {
+      //   Files.deleteIfExists(Paths.get(logFileLocation.toString() + "/pattypan.log"));
+      // }
 
       FileHandler fh = new FileHandler(logFileLocation.toString() + "/pattypan.log", true);
       fh.setFormatter(new SimpleFormatter());
