@@ -70,19 +70,19 @@ public class Main extends Application {
       }
     }
 
-    // Settings.readProperties();
+    Settings.readProperties();
 
-    // Session.LOGGER.log(Level.INFO,
-    //         "Wiki set as: {0}\nProtocol set as: {1}\nScript path set as: {2}",
-    //         new String[]{wiki, protocol, scriptPath}
-    // );
+    Session.LOGGER.log(Level.INFO,
+            "Wiki set as: {0}\nProtocol set as: {1}\nScript path set as: {2}",
+            new String[]{wiki, protocol, scriptPath}
+    );
 
     String os = System.getProperty("os.name");
 
-    // Session.LOGGER.log(Level.INFO,
-    //         "Operating System: {0}\nPattypan Version: {1}",
-    //         new String[]{os, Settings.VERSION}
-    // );
+    Session.LOGGER.log(Level.INFO,
+            "Operating System: {0}\nPattypan Version: {1}",
+            new String[]{os, Settings.VERSION}
+    );
 
     Session.WIKI = Wiki.newSession(wiki, scriptPath, protocol);
     launch(args);

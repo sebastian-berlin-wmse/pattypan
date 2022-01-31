@@ -11,10 +11,11 @@
 
   <target name="compile">
     <mkdir dir="bin"/>
-    <javac includeantruntime="false" srcdir="src" destdir="bin">
+    <javac includeantruntime="false" srcdir="src" destdir="bin" debug="true">
       <classpath refid="classpath" />
       <compilerarg line="--module-path ${openjfxSDKPath}"/>
       <compilerarg line="--add-modules javafx.web"/>
+      <compilerarg line="--add-modules javafx.swing"/>
     </javac>
   </target>
 
@@ -31,6 +32,7 @@
         <include name="javafx.base.jar"/>
         <include name="javafx.graphics.jar"/>
         <include name="javafx.controls.jar"/>
+        <include name="javafx.swing.jar"/>
       </fileset>
       <patternset>
         <exclude name="META-INF/MANIFEST.MF"/>
