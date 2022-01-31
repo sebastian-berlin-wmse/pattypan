@@ -1,10 +1,11 @@
 package pattypan;
 
-import javafx.embed.swing.JFXPanel;
+import javafx.application.Platform;
 
 public class Launcher {
     public static void main(String[] args) {
-        new JFXPanel();
+        // Initialise JavaFX.
+        Platform.startup(() -> {});
         Main.main(args);
     }
 }
