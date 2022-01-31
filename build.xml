@@ -41,10 +41,23 @@
     </unzip>
     <copy todir="bin">
       <fileset dir="${openjfxSDKPath}">
+        <!-- Linux -->
         <include name="libprism*.so"/>
         <include name="libjavafx*.so"/>
         <include name="libglass*.so"/>
         <include name="libdecora_sse.so"/>
+        <!-- Mac -->
+        <include name="libprism*.dylib"/>
+        <include name="libjavafx*.dylib"/>
+        <include name="libglass.dylib"/>
+        <include name="libdecora_sse.dylib"/>
+      </fileset>
+      <!-- Windows -->
+      <fileset dir="${openjfxSDKPath}/../bin">
+        <include name="prism*.dll"/>
+        <include name="javafx*.dll"/>
+        <include name="glass.dll"/>
+        <include name="decora_sse.dll"/>
       </fileset>
     </copy>
     <jar destfile="pattypan.jar" basedir="bin" includes="**/*">
