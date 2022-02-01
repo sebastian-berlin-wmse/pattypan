@@ -45,6 +45,17 @@
         <include name="libglass*.so"/>
         <include name="libdecora_sse.so"/>
       </fileset>
+      <!-- Windows -->
+      <fileset dir="${openjfxSDKPath}/../bin">
+        <include name="prism*.dll"/>
+        <include name="javafx*.dll"/>
+        <include name="glass.dll"/>
+        <include name="decora_sse.dll"/>
+        <include name="api-ms-win-core-console-l1-1-0.dll"/>
+        <include name="api-ms-win-core-console-l1-2-0.dll"/>
+        <include name="msvcp140.dll"/>
+        <include name="vcruntime140_1.dll"/>
+      </fileset>
     </copy>
     <jar destfile="pattypan.jar" basedir="bin" includes="**/*">
       <manifest>
