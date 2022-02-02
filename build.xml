@@ -10,7 +10,7 @@
   </path>
 
   <target name="prepareJavfx">
-    <delete dir="${tmp}"/>
+    <mkdir dir="${tmp}"/>
     <unzip dest="${tmp}">
       <fileset dir=".">
         <include name="openjfx-*_linux-*_bin-sdk.zip"/>
@@ -55,6 +55,7 @@
         <include name="**/javafx.base.jar"/>
         <include name="**/javafx.graphics.jar"/>
         <include name="**/javafx.controls.jar"/>
+        <include name="**/javafx.web.jar"/>
       </patternset>
       <mapper type="flatten"/>
     </unzip>
