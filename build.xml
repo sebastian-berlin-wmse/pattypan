@@ -9,17 +9,81 @@
     </fileset>
   </path>
 
-  <target name="clean">
-    <delete dir="bin"/>
-  </target>
-
-  <target name="compile" depends="clean">
-    <mkdir dir="bin"/>
+  <target name="compile">
+    <!-- <mkdir dir="bin"/> -->
     <javac includeantruntime="false" srcdir="src" destdir="bin">
       <classpath refid="classpath" />
-      <compilerarg line="--module-path ${openjfxSDKPath}"/>
+      <compilerarg line="--module-path tmp"/>
       <compilerarg line="--add-modules javafx.web"/>
     </javac>
+  </target>
+
+  <target name="copy">
+    <delete dir="tmp"/>
+    <!-- <delete dir="bin"/> -->
+    <unzip src="../openjfx-17.0.2_linux-x64_bin-sdk.zip" dest="tmp">
+      <patternset>
+        <include name="**/javafx.base.jar"/>
+        <include name="**/javafx.graphics.jar"/>
+        <include name="**/javafx.controls.jar"/>
+        <include name="**/javafx.web.jar"/>
+      </patternset>
+      <mapper type="flatten"/>
+    </unzip>
+    <unzip dest="bin">
+      <fileset dir="tmp">
+        <include name="javafx.base.jar"/>
+        <include name="javafx.graphics.jar"/>
+        <include name="javafx.controls.jar"/>
+      </fileset>
+      <patternset>
+        <exclude name="META-INF/MANIFEST.MF"/>
+        <exclude name="module-info.class"/>
+      </patternset>
+    </unzip>
+    <unzip src="../openjfx-17.0.2_linux-x64_bin-sdk.zip" dest="bin">
+      <patternset>
+        <include name="**/libprism*.so"/>
+        <include name="**/libjavafx*.so"/>
+        <include name="**/libglass*.so"/>
+        <include name="**/libdecora_sse.so"/>
+      </patternset>
+      <mapper type="flatten"/>
+    </unzip>
+
+    <unzip src="../openjfx-17.0.2_windows-x64_bin-sdk.zip" dest="tmp">
+      <patternset>
+        <include name="**/javafx.base.jar"/>
+        <include name="**/javafx.graphics.jar"/>
+        <include name="**/javafx.controls.jar"/>
+      </patternset>
+      <mapper type="flatten"/>
+    </unzip>
+    <unzip dest="bin">
+      <fileset dir="tmp">
+        <include name="javafx.base.jar"/>
+        <include name="javafx.graphics.jar"/>
+        <include name="javafx.controls.jar"/>
+      </fileset>
+      <patternset>
+        <exclude name="META-INF/MANIFEST.MF"/>
+        <exclude name="module-info.class"/>
+      </patternset>
+    </unzip>
+    <unzip src="../openjfx-17.0.2_windows-x64_bin-sdk.zip" dest="bin">
+      <patternset>
+        <include name="**/prism*.dll"/>
+        <include name="**/javafx*.dll"/>
+        <include name="**/glass.dll"/>
+        <include name="**/decora_sse.dll"/>
+        <include name="**/api-ms-win-core-console-l1-1-0.dll"/>
+        <include name="**/api-ms-win-core-console-l1-2-0.dll"/>
+        <include name="**/msvcp140.dll"/>
+        <include name="**/vcruntime140_1.dll"/>
+      </patternset>
+      <mapper type="flatten"/>
+    </unzip>
+    <!-- <delete dir="tmp"/> -->
   </target>
 
   <target name="jar">
@@ -30,37 +94,37 @@
         <include name="text/**"/>
       </fileset>
     </copy>
-    <unzip dest="bin">
-      <fileset dir="${openjfxSDKPath}">
-        <include name="javafx.base.jar"/>
-        <include name="javafx.graphics.jar"/>
-        <include name="javafx.controls.jar"/>
-        <include name="javafx.swing.jar"/>
-      </fileset>
-      <patternset>
-        <exclude name="META-INF/MANIFEST.MF"/>
-        <exclude name="module-info.class"/>
-      </patternset>
-    </unzip>
-    <copy todir="bin">
-      <fileset dir="${openjfxSDKPath}">
-        <include name="libprism*.so"/>
-        <include name="libjavafx*.so"/>
-        <include name="libglass*.so"/>
-        <include name="libdecora_sse.so"/>
-      </fileset>
-      <!-- Windows -->
-      <fileset dir="${openjfxSDKPath}/../bin">
-        <include name="prism*.dll"/>
-        <include name="javafx*.dll"/>
-        <include name="glass.dll"/>
-        <include name="decora_sse.dll"/>
-        <include name="api-ms-win-core-console-l1-1-0.dll"/>
-        <include name="api-ms-win-core-console-l1-2-0.dll"/>
-        <include name="msvcp140.dll"/>
-        <include name="vcruntime140_1.dll"/>
-      </fileset>
-    </copy>
+    <!-- <unzip dest="bin"> -->
+    <!--   <fileset dir="../javafx-sdk-17.0.2-*/lib"> -->
+    <!--     <include name="javafx.base.jar"/> -->
+    <!--     <include name="javafx.graphics.jar"/> -->
+    <!--     <include name="javafx.controls.jar"/> -->
+    <!--   </fileset> -->
+    <!--   <patternset> -->
+    <!--     <exclude name="META-INF/MANIFEST.MF"/> -->
+    <!--     <exclude name="module-info.class"/> -->
+    <!--   </patternset> -->
+    <!-- </unzip> -->
+    <!-- <copy todir="bin"> -->
+    <!--   <fileset dir="${openjfxSDKPath}/lib"> -->
+    <!--     <!-\- Linux -\-> -->
+    <!--     <include name="libprism*.so"/> -->
+    <!--     <include name="libjavafx*.so"/> -->
+    <!--     <include name="libglass*.so"/> -->
+    <!--     <include name="libdecora_sse.so"/> -->
+    <!--   </fileset> -->
+    <!--   <!-\- Windows -\-> -->
+    <!--   <fileset dir="${openjfxSDKPath}/bin"> -->
+    <!--     <include name="prism*.dll"/> -->
+    <!--     <include name="javafx*.dll"/> -->
+    <!--     <include name="glass.dll"/> -->
+    <!--     <include name="decora_sse.dll"/> -->
+    <!--     <include name="api-ms-win-core-console-l1-1-0.dll"/> -->
+    <!--     <include name="api-ms-win-core-console-l1-2-0.dll"/> -->
+    <!--     <include name="msvcp140.dll"/> -->
+    <!--     <include name="vcruntime140_1.dll"/> -->
+    <!--   </fileset> -->
+    <!-- </copy> -->
     <jar destfile="pattypan.jar" basedir="bin" includes="**/*">
       <manifest>
         <attribute name="Class-Path" value="${lib.dir}"/>
