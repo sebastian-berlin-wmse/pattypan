@@ -19,7 +19,7 @@ ant
 
 This will run the default `build` target. It assumes that the current directory contains the OpenJFX SDK ZIP(s) and will unpack the required files to the correct locations. The resulting JAR will support Linux, Windows or both. The ZIPs present dictates what platforms will be supported. Note that the ZIPs should have their default name to be included.
 
-A temporary directory will be used during the build process and removed afterwards. It's default path is *tmp/* and can be set using `ant -Dtmp=...`
+A temporary directory will be used during the build process and removed afterwards. Its default path is *tmp/* and can be set using `ant -Dtmp=...`.
 
 You can also set test server or any other server:
 
@@ -30,6 +30,21 @@ java -jar pattypan.jar wiki="test2.wikipedia.org" protocol="https://" scriptPath
 ```
 
 Please note, that on test server file upload may be disabled for regular users. Admin account is suggested, you can request rights [here](https://test.wikipedia.org/wiki/Wikipedia:Requests/Permissions). If you have problems with program running, check [article on project wiki](https://github.com/yarl/pattypan/wiki/Run).
+
+#### For development
+The default target is made to easily build the JAR. If you are developing you may want to specify targets to speed up the process. E.g. it may be enough to only unpack the JavaFX files once and not clean after each build. In that case you would do something like:
+
+```
+ant prepareJavfx
+```
+
+once and then
+
+```
+ant compile jar
+```
+
+each time you want to build.
 
 ### License
 Copyright (c) 2016 Paweł Marynowski.
