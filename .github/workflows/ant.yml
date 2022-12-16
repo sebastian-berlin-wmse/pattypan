@@ -22,5 +22,6 @@ jobs:
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
     - name: Create executable
-      run: wget https://www.7-zip.org/a/7z2201-x64.exe
-      shell: pwsh
+      run: curl https://example.com
+      #run: wget https://www.7-zip.org/a/7z2201-x64.exe
+      #shell: pwsh
