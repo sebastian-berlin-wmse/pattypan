@@ -84,7 +84,9 @@ public class Main extends Application {
             new String[]{os, Settings.VERSION}
     );
 
-    Session.WIKI = new Wiki(wiki, scriptPath, protocol);
+    Session.WIKI = Wiki.newSession(wiki, scriptPath, protocol);
+    Session.WIKI.setUserAgent(Settings.USERAGENT);
+    Session.LOGGER.log(Level.INFO, "User-Agent: {0}", Session.WIKI.getUserAgent());
     launch(args);
   }
 }
