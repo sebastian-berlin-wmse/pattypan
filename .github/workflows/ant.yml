@@ -24,8 +24,9 @@ jobs:
     - name: Download 7-zip
       run: |
         curl https://www.7-zip.org/a/7z2201-x64.exe > 7z.exe
-        curl https://www.7-zip.org/a/7z920_extra.7z > 7z-extra.7z
-        unzip 7z-extra.7z
+        curl https://www.7-zip.org/a/7z2201-extra.7z > 7z-extra.7z
+        7z.exe x 7z-extra.7z
+        ls -r
     - name: Create executable
       run: |
         mkdir pattypan-exe
