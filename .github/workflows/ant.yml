@@ -14,15 +14,18 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Setup JDK and JavaFX
-      uses: actions/setup-java@v1
-      with:
-        java-version: '17'
-        java-package: 'jdk+fx'
-    - name: Build with Ant
-      run: ant -noinput -buildfile build.xml
+    #- name: Setup JDK and JavaFX
+    #  uses: actions/setup-java@v1
+    #  with:
+    #    java-version: '17'
+    #    java-package: 'jdk+fx'
+    #- name: Build with Ant
+    #  run: ant -noinput -buildfile build.xml
     - name: Download 7-zip
-      run: curl https://www.7-zip.org/a/7z2201-x64.exe > 7z.exe
+      run: |
+        curl https://www.7-zip.org/a/7z2201-x64.exe > 7z.exe
+        curl https://www.7-zip.org/a/7z920_extra.7z > 7z-extra.7z
+        unzip 7z-extra.7z
     - name: Create executable
       run: |
         mkdir pattypan-exe
