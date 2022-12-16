@@ -22,6 +22,5 @@ jobs:
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
     - name: Create executable
-      uses: edgarrc/action-7z@v1
-      with:
-        args: 7z a -t7z -mx=9 build.7z ./build/
+      run: wget https://www.7-zip.org/a/7z2201-x64.exe
+      shell: pwsh
