@@ -22,6 +22,6 @@ jobs:
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
     - name: Download 7-zip
-      run: wget https://www.7-zip.org/a/7z2201-x64.exe 7z.exe
+      run: curl https://www.7-zip.org/a/7z2201-x64.exe > 7z.exe
     - name: Create executable
       run: 7z.exe
