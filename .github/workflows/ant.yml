@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    #- uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     - name: Setup Java runtime
       uses: actions/setup-java@v3
       with:
@@ -23,12 +23,12 @@ jobs:
     #- name: tmp
     #  run: |
     #    ls ${{ env.JAVA_HOME }}
-    #- name: Build with Ant
-    #  run: ant -noinput -buildfile build.xml
-    #- name: Download 7-zip SFX
-    #  run: |
-    #    curl -LO https://www.7-zip.org/a/lzma2201.7z
-    #    7z e '-i!bin/7zSD.sfx' lzma2201.7z
+    - name: Build with Ant
+      run: ant -noinput -buildfile build.xml
+    - name: Download 7-zip SFX
+      run: |
+        curl -LO https://www.7-zip.org/a/lzma2201.7z
+        7z e '-i!bin/7zSD.sfx' lzma2201.7z
     - name: Create executable
       run: |
         mkdir pattypan-exe
