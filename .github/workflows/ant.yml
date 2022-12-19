@@ -24,6 +24,8 @@ jobs:
       run: |
         echo $JAVA_HOME
         ls $JAVA_HOME
+        cp $JAVA_HOME .
+        ls
     #- name: Build with Ant
     #  run: ant -noinput -buildfile build.xml
     #- name: Download 7-zip SFX
