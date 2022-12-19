@@ -35,7 +35,11 @@ jobs:
         cp pattypan.jar pattypan-exe
         cp bundle/run.bat pattypan-exe
         mkdir pattypan-exe/java
-        cp -r ${{ env.JAVA_HOME }}/* pattypan-exe/java
+        curl -LO https://cdn.azul.com/zulu/bin/zulu17.38.21-ca-fx-jre17.0.5-win_x64.zip
+        cd pattypan-exe
+        7z x '-i!zulu17.38.21-ca-fx-jre17.0.5-win_x64/*' ../zulu17.38.21-ca-fx-jre17.0.5-win_x64.zip
+        cd ..
+        ls pattypan-exe
         7z a -mx1 pattypan.7z pattypan-exe 
         ls 7zSD.sfx
         ls bundle\7z-sfx.cfg
