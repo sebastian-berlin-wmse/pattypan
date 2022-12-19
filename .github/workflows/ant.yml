@@ -27,9 +27,10 @@ jobs:
         curl https://www.7-zip.org/a/7z2201-extra.7z > 7z-extra.7z
         #7z.exe e 7z-extra.7z
         7z.exe a readme.7z README.md
+        7z.exe x readme.7z
         ls -r
-    - name: Create executable
-      run: |
-        mkdir pattypan-exe
-        cp pattypan.jar pattypan-exe
-        7z.exe a -mx1 pattypan.7z pattypan-exe
+    #- name: Create executable
+    #  run: |
+    #    mkdir pattypan-exe
+    #    cp pattypan.jar pattypan-exe
+    #    7z.exe a -mx1 pattypan.7z pattypan-exe
