@@ -37,4 +37,4 @@ jobs:
         mkdir pattypan-exe/java
         cp ${{ env.JAVA_HOME }}/* pattypan-exe/java
         7z a -mx1 pattypan.7z pattypan-exe
-        C:\Windows\System32\cmd.exe /c copy /b 7zSD.sfx + bundle/7z-sfx.cfg + pattypan-exe/pattypan.7z pattypan.exe
+        C:\Windows\System32\cmd.exe /c copy /b 7zSD.sfx + "bundle/7z-sfx.cfg" + pattypan-exe/pattypan.7z pattypan.exe
