@@ -17,8 +17,9 @@ jobs:
     - name: Setup JDK and JavaFX
       uses: actions/setup-java@v2
       with:
-        java-version: '17'
-        java-package: 'jre+fx'
+        java-version: 17
+        java-package: jre+fx
+        distribution: temurin
     #- name: Build with Ant
     #  run: ant -noinput -buildfile build.xml
     - name: Download 7-zip SFX
