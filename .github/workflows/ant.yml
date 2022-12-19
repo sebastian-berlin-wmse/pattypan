@@ -26,7 +26,7 @@ jobs:
         mkdir "assets\7zextra"
         cd "assets\7zextra"
         curl.exe -L -O https://www.7-zip.org/a/7z2201-extra.7z
-        7z.exe x 7z2201-extra.7z
+        7z x 7z2201-extra.7z
         #curl.exe -L -O https://drive.offspot.it/creator/bundled-in-creator/7z920_extra.7z
         #7z.exe x 7z920_extra.7z
         #curl.exe -L -O https://drive.offspot.it/creator/bundled-in-creator/7z1805-extra.7z
