@@ -42,9 +42,8 @@ jobs:
         ls pattypan.7z
         C:\Windows\System32\cmd.exe /c copy /b 7zSD.sfx + bundle\7z-sfx.cfg + pattypan.7z pattypan.exe
         ls pattypan.exe
-        #C:\Windows\System32\cmd.exe /c copy /b "7zSD.sfx" + "bundle/7z-sfx.cfg" + "pattypan-exe/pattypan.7z" "pattypan.exe"
-    #- name: Save executable
-    #  uses: actions/upload-artifact@v3
-    #  with:
-    #    name: pattypan.exe
-    #    path: pattypan.exe
+    - name: Save executable
+      uses: actions/upload-artifact@v3
+      with:
+        name: pattypan.exe
+        path: pattypan.exe
