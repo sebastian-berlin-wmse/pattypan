@@ -14,33 +14,19 @@ jobs:
     runs-on: windows-latest
     steps:
     #- uses: actions/checkout@v3
-    #- name: Setup JDK and JavaFX
-    #  uses: actions/setup-java@v1
-    #  with:
-    #    java-version: '17'
-    #    java-package: 'jdk+fx'
+    - name: Setup JDK and JavaFX
+      uses: actions/setup-java@v1
+      with:
+        java-version: '17'
+        java-package: 'jrk+fx'
     #- name: Build with Ant
     #  run: ant -noinput -buildfile build.xml
-    - name: Download 7-zip
+    - name: Download 7-zip SFX
       run: |
-        #mkdir "assets\7zextra"
-        #cd "assets\7zextra"
-        curl -O https://www.7-zip.org/a/7z2201-extra.7z
-        7z x 7z2201-extra.7z
-        #curl.exe -L -O https://drive.offspot.it/creator/bundled-in-creator/7z920_extra.7z
-        #7z.exe x 7z920_extra.7z
-        #curl.exe -L -O https://drive.offspot.it/creator/bundled-in-creator/7z1805-extra.7z
-        #7z.exe -y x 7z1805-extra.7z
-        #cd ..\..
-        #curl https://www.7-zip.org/a/7z2201-x64.exe > 7z.exe
-        #curl https://www.7-zip.org/a/7z2201-extra.7z > 7z-extra.7z
-        #7z.exe a readme.7z README.md
-        #7z.exe x readme.7z
-        #7z x 7z-extra.7z
-        #cat 7z-extra.7z
-        ls -r
+        curl -LO https://www.7-zip.org/a/lzma2201.7z
+        7z e '-i!bin/7zSD.sfx' lzma2201.7z
     #- name: Create executable
     #  run: |
     #    mkdir pattypan-exe
     #    cp pattypan.jar pattypan-exe
-    #    7z.exe a -mx1 pattypan.7z pattypan-exe
+    #    7z a -mx1 pattypan.7z pattypan-exe
