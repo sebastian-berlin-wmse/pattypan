@@ -21,7 +21,9 @@ jobs:
         java-version: '17'
         java-package: jre+fx
     - name: tmp
-      run: ls $JAVA_HOME
+      run: |
+        echo $JAVA_HOME
+        ls $JAVA_HOME
     #- name: Build with Ant
     #  run: ant -noinput -buildfile build.xml
     #- name: Download 7-zip SFX
