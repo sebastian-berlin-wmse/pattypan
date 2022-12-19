@@ -20,12 +20,14 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
         java-package: jre+fx
+    - name: tmp
+      run: ls $JAVA_HOME
     #- name: Build with Ant
     #  run: ant -noinput -buildfile build.xml
-    - name: Download 7-zip SFX
-      run: |
-        curl -LO https://www.7-zip.org/a/lzma2201.7z
-        7z e '-i!bin/7zSD.sfx' lzma2201.7z
+    #- name: Download 7-zip SFX
+    #  run: |
+    #    curl -LO https://www.7-zip.org/a/lzma2201.7z
+    #    7z e '-i!bin/7zSD.sfx' lzma2201.7z
     #- name: Create executable
     #  run: |
     #    mkdir pattypan-exe
