@@ -17,9 +17,9 @@ jobs:
     - name: Setup Java runtime
       uses: actions/setup-java@v3
       with:
-        distribution: 'zulu'
-        java-version: '17'
-        java-package: jre+fx
+        distribution: zulu
+        java-version: 17
+        java-package: jdk+fx
     #- name: tmp
     #  run: |
     #    ls ${{ env.JAVA_HOME }}
