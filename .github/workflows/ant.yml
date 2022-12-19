@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
+    #- uses: actions/checkout@v3
     #- name: Setup JDK and JavaFX
     #  uses: actions/setup-java@v1
     #  with:
@@ -23,8 +23,8 @@ jobs:
     #  run: ant -noinput -buildfile build.xml
     - name: Download 7-zip
       run: |
-        mkdir "assets\7zextra"
-        cd "assets\7zextra"
+        #mkdir "assets\7zextra"
+        #cd "assets\7zextra"
         curl.exe -L -O https://www.7-zip.org/a/7z2201-extra.7z
         7z x 7z2201-extra.7z
         #curl.exe -L -O https://drive.offspot.it/creator/bundled-in-creator/7z920_extra.7z
