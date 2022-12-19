@@ -22,7 +22,7 @@ jobs:
         java-package: jre+fx
     - name: tmp
       run: |
-        echo $JAVA_HOME
+        echo "JAVA_HOME = $JAVA_HOME"
         ls $JAVA_HOME
         cp $JAVA_HOME .
         ls
