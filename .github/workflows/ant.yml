@@ -42,7 +42,8 @@ jobs:
       run: |
         cp pattypan.jar pattypan-exe
         cp bundle/run.bat pattypan-exe
-        7z a -mx1 pattypan.7z pattypan-exe/* 
+        cd pattypan-exe
+        7z a -mx1 ../pattypan.7z * 
     #- name: Create executable
     #  run: |
     #    C:\Windows\System32\cmd.exe /c copy /b 7zSD.sfx + bundle\7z-sfx.cfg + pattypan.7z pattypan.exe
