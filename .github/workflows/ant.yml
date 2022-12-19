@@ -23,11 +23,19 @@ jobs:
     #  run: ant -noinput -buildfile build.xml
     - name: Download 7-zip
       run: |
+        mkdir "assets\7zextra"
+        cd "assets\7zextra"
+        curl.exe -L -O http://mirror.download.kiwix.org/dev/7z920_extra.7z
+        7z.exe x 7z920_extra.7z
+        curl.exe -L -O http://mirror.download.kiwix.org/dev/7z1805-extra.7z
+        7z.exe -y x 7z1805-extra.7z
+        cd ..\..
         #curl https://www.7-zip.org/a/7z2201-x64.exe > 7z.exe
         curl https://www.7-zip.org/a/7z2201-extra.7z > 7z-extra.7z
         #7z.exe a readme.7z README.md
         #7z.exe x readme.7z
         7z x 7z-extra.7z
+        cat 7z-extra.7z
         ls -r
     #- name: Create executable
     #  run: |
