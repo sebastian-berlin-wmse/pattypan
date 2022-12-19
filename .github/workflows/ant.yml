@@ -35,7 +35,7 @@ jobs:
         cp pattypan.jar pattypan-exe
         cp bundle/run.bat pattypan-exe
         mkdir pattypan-exe/java
-        cp ${{ env.JAVA_HOME }}/* pattypan-exe/java
+        cp -r ${{ env.JAVA_HOME }}/* pattypan-exe/java
         7z a -mx1 pattypan.7z pattypan-exe 
         ls 7zSD.sfx
         ls bundle\7z-sfx.cfg
