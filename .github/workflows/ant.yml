@@ -17,7 +17,7 @@ jobs:
     - name: Setup Java runtime
       uses: actions/setup-java@v3
       with:
-        distribution: 'temurin'
+        distribution: 'zulu'
         java-version: '11'
         java-package: jre+fx
       #uses: actions/setup-java@v2
