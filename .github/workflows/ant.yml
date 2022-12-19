@@ -20,17 +20,20 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
         java-package: jre+fx
-    - name: tmp
-      run: |
-        ls ${{ env.JAVA_HOME }}
+    #- name: tmp
+    #  run: |
+    #    ls ${{ env.JAVA_HOME }}
     #- name: Build with Ant
     #  run: ant -noinput -buildfile build.xml
     #- name: Download 7-zip SFX
     #  run: |
     #    curl -LO https://www.7-zip.org/a/lzma2201.7z
     #    7z e '-i!bin/7zSD.sfx' lzma2201.7z
-    #- name: Create executable
-    #  run: |
-    #    mkdir pattypan-exe
-    #    cp pattypan.jar pattypan-exe
-    #    7z a -mx1 pattypan.7z pattypan-exe
+    - name: Create executable
+      run: |
+        mkdir pattypan-exe
+        cp pattypan.jar pattypan-exe
+        cp bundle/run.bat pattypan-exe
+        mkdir pattypan-exe/java
+        cp ${{ env.JAVA_HOME }}/* pattypan-exe/java
+        7z a -mx1 pattypan.7z pattypan-exe
