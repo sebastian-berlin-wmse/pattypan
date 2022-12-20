@@ -46,10 +46,18 @@ jobs:
         cd pattypan-exe
         7z a -mx1 ../pattypan.7z * 
     - name: Create executable
-      run: |
-        C:\Windows\System32\cmd.exe /c copy /b 7zSD.sfx + bundle\7z-sfx.cfg + pattypan.7z pattypan.exe
+      run: cmd /c copy /b 7zSD.sfx + bundle\7z-sfx.cfg + pattypan.7z pattypan.exe
     - name: Save executable
       uses: actions/upload-artifact@v3
       with:
         name: pattypan.exe
         path: pattypan.exe
+    - name: Create small executable
+      run: |
+        7z a -mx9 ../pattypan-small.7z * 
+        cmd /c copy /b 7zSD.sfx + bundle\7z-sfx.cfg + pattypan-small.7z pattypan-small.exe
+    - name: Save small executable
+      uses: actions/upload-artifact@v3
+      with:
+        name: pattypan-small.exe
+        path: pattypan-small.exe
