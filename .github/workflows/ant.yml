@@ -1,4 +1,4 @@
-name: Make self contained Windows EXE
+name: Make self-contained Windows EXE
 
 on:
   push:
