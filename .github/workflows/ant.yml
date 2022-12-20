@@ -19,7 +19,9 @@ jobs:
       with:
         distribution: zulu
         java-version: 17
-        java-package: jdk+fx
+        java-package: |
+          jre+fx
+          jdk+fx
     #- name: tmp
     #  run: |
     #    ls ${{ env.JAVA_HOME }}
