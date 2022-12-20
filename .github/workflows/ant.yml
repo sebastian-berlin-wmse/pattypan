@@ -19,12 +19,7 @@ jobs:
       with:
         distribution: zulu
         java-version: 17
-        java-package: |
-          jre+fx
-          jdk+fx
-    #- name: tmp
-    #  run: |
-    #    ls ${{ env.JAVA_HOME }}
+        java-package: jdk+fx
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
     - name: Download 7-zip SFX
@@ -35,11 +30,14 @@ jobs:
       run: |
         mkdir pattypan-exe
     - name: Download Java runtime for executable
+      uses: actions/setup-java@v3
+      with:
+        distribution: zulu
+        java-version: 17
+        java-package: jre+fx
+    - name: tmp
       run: |
-        curl -LO https://cdn.azul.com/zulu/bin/zulu17.38.21-ca-jre17.0.5-win_x64.zip
-        cd pattypan-exe
-        7z x ../zulu17.38.21-ca-jre17.0.5-win_x64.zip
-        mv zulu17.38.21-ca-jre17.0.5-win_x64 java
+        ls ${{ env.JAVA_HOME }}
     - name: Create archive
       run: |
         cp pattypan.jar pattypan-exe
