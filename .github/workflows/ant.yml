@@ -40,8 +40,13 @@ jobs:
         7z a -mx1 ../pattypan.7z *
     - name: Create executable
       run: cmd /c copy /b 7zSD.sfx + bundle\7z-sfx.cfg + pattypan.7z pattypan.exe
-    - name: Save executable
-      uses: actions/upload-artifact@v3
+    #- name: Save executable
+    #  uses: actions/upload-artifact@v3
+    #  with:
+    #    name: pattypan.exe
+    #    path: pattypan.exe
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      #if: startsWith(github.ref, 'refs/tags/')
       with:
-        name: pattypan.exe
-        path: pattypan.exe
+        files: pattypan.exe
