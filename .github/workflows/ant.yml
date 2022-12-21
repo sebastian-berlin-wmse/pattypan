@@ -47,6 +47,6 @@ jobs:
     #    path: pattypan.exe
     - name: Release
       uses: softprops/action-gh-release@v1
-      #if: startsWith(github.ref, 'refs/tags/')
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         files: pattypan.exe
