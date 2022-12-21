@@ -36,7 +36,7 @@ jobs:
       run: |
         cp -r ${{ env.JAVA_HOME }} pattypan-exe/java
         cp pattypan.jar pattypan-exe
-        cp bundle/run.bat pattypan-exe
+        #cp bundle/run.bat pattypan-exe
         cd pattypan-exe
         7z a -mx1 ../pattypan.7z *
     - name: Create executable
